@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVA GAME HUB</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090b14;color:#fff;font-family:Arial,sans-serif}
+header{height:75px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;background:#101321;border-bottom:1px solid #242943}
+.logo{font-size:24px;font-weight:900;letter-spacing:2px;color:#9b75ff}
+.logo span{color:#fff}
+nav a{color:#aaa;text-decoration:none;margin-left:22px;font-size:14px}
+nav a:hover{color:#a78bfa}
+.hero{padding:75px 8%;background:radial-gradient(ellipse at 75% 40%,#34206a 0%,#17132e 35%,#090b14 75%)}
+.tag{color:#a78bfa;font-size:13px;letter-spacing:3px}
+h1{font-size:clamp(38px,7vw,68px);max-width:650px;margin:20px 0}
+h1 span{color:#a78bfa}
+.hero p{color:#aaa;max-width:480px;line-height:1.7}
+.search{margin-top:30px;display:flex;max-width:480px}
+.search input{flex:1;min-width:0;padding:15px;background:#171a29;border:1px solid #383451;border-radius:8px 0 0 8px;color:white;font-size:15px}
+.search button{padding:0 20px;background:#8257ed;color:white;border:0;border-radius:0 8px 8px 0;font-weight:bold}
+section{padding:40px 7%}
+.section-title{display:flex;justify-content:space-between;align-items:center}
+.section-title h2{font-size:25px}
+.section-title span{color:#9b75ff;font-size:13px}
+.categories{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 30px}
+.cat{padding:10px 17px;border:1px solid #303249;border-radius:20px;color:#bbb;background:#131625}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+.game{background:#151827;border:1px solid #282d43;border-radius:12px;overflow:hidden;transition:.2s}
+.game:hover{transform:translateY(-5px);border-color:#916aff}
+.cover{height:135px;display:flex;align-items:center;justify-content:center;font-size:42px;background:linear-gradient(135deg,#292052,#111b37)}
+.game-info{padding:17px}
+.game-info h3{margin:0 0 8px}
+.game-info p{font-size:13px;color:#999}
+.game-info a{display:block;text-align:center;padding:11px;background:#7951df;color:white;text-decoration:none;border-radius:7px;margin-top:15px;font-size:13px}
+footer{text-align:center;padding:30px;color:#777;border-top:1px solid #25283a;font-size:13px}
+@media(max-width:600px){header{padding:0 5%}nav a{margin-left:9px;font-size:12px}.hero{padding:55px 6%}section{padding:30px 5%}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">NOVA <span>GAME HUB</span></div>
+<nav>
+<a href="#home">Home</a>
+<a href="#games">Games</a>
+<a href="#about">About</a>
+</nav>
+</header>
+<main>
+<div class="hero" id="home">
+<div class="tag">YOUR GAMING WORLD</div>
+<h1>DISCOVER YOUR NEXT <span>ADVENTURE.</span></h1>
+<p>Explore games, discover new worlds and find your next favorite PC game — all in one place.</p>
+<div class="search">
+<input id="search" placeholder="Search games...">
+<button onclick="searchGames()">SEARCH</button>
+</div>
+</div>
+<section id="games">
+<div class="section-title">
+<h2>Featured Games</h2>
+<span>EXPLORE THE LIBRARY</span>
+</div>
+<div class="categories">
+<button class="cat" onclick="filterGames('all')">All Games</button>
+<button class="cat" onclick="filterGames('action')">Action</button>
+<button class="cat" onclick="filterGames('adventure')">Adventure</button>
+<button class="cat" onclick="filterGames('racing')">Racing</button>
+</div>
+<div class="games" id="gameList">
+<div class="game" data-name="counter strike 2" data-category="action">
+<div class="cover">🎯</div><div class="game-info">
+<h3>Counter-Strike 2</h3><p>Action · Free to Play</p>
+<a href="https://store.steampowered.com/app/730/" target="_blank">VIEW GAME ↗</a>
+</div></div>
+<div class="game" data-name="dota 2" data-category="action">
+<div class="cover">⚔️</div><div class="game-info">
+<h3>Dota 2</h3><p>Strategy · Free to Play</p>
+<a href="https://store.steampowered.com/app/570/" target="_blank">VIEW GAME ↗</a>
+</div></div>
+<div class="game" data-name="apex legends" data-category="action">
+<div class="cover">🚀</div><div class="game-info">
+<h3>Apex Legends</h3><p>Action · Free to Play</p>
+<a href="https://store.steampowered.com/app/1172470/" target="_blank">VIEW GAME ↗</a>
+</div></div>
+<div class="game" data-name="trackmania" data-category="racing">
+<div class="cover">🏎️</div><div class="game-info">
+<h3>Trackmania</h3><p>Racing · Free to Play</p>
+<a href="https://store.steampowered.com/app/2225070/" target="_blank">VIEW GAME ↗</a>
+</div></div>
+<div class="game" data-name="the sims 4" data-category="adventure">
+<div class="cover">🌍</div><div class="game-info">
+<h3>The Sims 4</h3><p>Simulation · Free to Play</p>
+<a href="https://www.ea.com/games/the-sims/the-sims-4" target="_blank">VIEW GAME ↗</a>
+</div></div>
+<div class="game" data-name="war thunder" data-category="action">
+<div class="cover">✈️</div><div class="game-info">
+<h3>War Thunder</h3><p>Action · Free to Play</p>
+<a href="https://warthunder.com/" target="_blank">VIEW GAME ↗</a>
+</div></div>
+</div>
+</section>
+</main>
+<footer id="about">© 2026 NOVA GAME HUB · YOUR WORLD. YOUR GAMES.</footer>
+<script>
+function searchGames(){
+let q=document.getElementById('search').value.toLowerCase();
+document.querySelectorAll('.game').forEach(g=>{
+g.style.display=g.dataset.name.includes(q)?'block':'none';
+});
+}
+function filterGames(category){
+document.querySelectorAll('.game').forEach(g=>{
+g.style.display=category==='all'||g.dataset.category===category?'block':'none';
+});
+}
+</script>
+</body>
+</html>
